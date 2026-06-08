@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>清兰德兰州纯汤牛肉面·烧烤 · 全运营方案</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --red:#C62828;--red-light:#FFE8E8;
+  --gold:#F4A100;--gold-light:#FFF3D6;
+  --dark:#2D2D2D;--gray:#666;--light:#F5F2ED;
+  --white:#FFF;--green:#2D6A4F;--green-light:#E8F5E9;
+}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;
+  background:#FFFBF5;color:var(--dark);line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,0,0,0.04);
+  padding:0 10px;height:44px;
+  display:flex;align-items:center;
+  overflow-x:auto;scrollbar-width:none;
+}
+nav::-webkit-scrollbar{display:none}
+nav a{
+  white-space:nowrap;font-size:11px;color:var(--gray);
+  text-decoration:none;padding:4px 8px;border-radius:5px;
+  flex-shrink:0;font-weight:500;
+}
+nav a:hover,nav a.active{color:var(--red);background:var(--red-light)}
+.hero{
+  padding:70px 18px 32px;text-align:center;
+  background:linear-gradient(160deg,#1A1A2E 0%,#2D2D2D 40%,#C62828 100%);
+  color:#FFF;min-height:55vh;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'🍜🔥🥩🌶️🍺';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);font-size:140px;opacity:0.04;
+  letter-spacing:24px;pointer-events:none;
+}
+.hero .badge{
+  display:inline-block;background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(4px);padding:4px 14px;border-radius:20px;
+  font-size:10px;letter-spacing:2px;margin-bottom:14px;border:1px solid rgba(255,255,255,0.08);
+}
+.hero h1{font-size:clamp(26px,5vw,38px);font-weight:800;letter-spacing:2px;}
+.hero h1 span{color:var(--gold)}
+.hero .sub{font-size:clamp(12px,2vw,15px);opacity:.85;margin:6px 0 16px;font-weight:300;}
+.hero .tags{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;}
+.hero .tags span{background:rgba(255,255,255,0.1);padding:3px 9px;border-radius:14px;font-size:10px;border:1px solid rgba(255,255,255,0.08);}
+.container{max-width:780px;margin:0 auto;padding:0 16px;}
+.scene{padding:32px 0;border-bottom:1px solid rgba(0,0,0,0.04)}
+.scene:last-child{border-bottom:none}
+.scene-title{font-size:clamp(17px,2.8vw,22px);font-weight:700;margin-bottom:8px;}
+.scene-title em{font-style:normal;color:var(--red)}
+.scene-title em.gold{color:var(--gold)}
+.s-divider{width:40px;height:3px;border-radius:2px;margin:5px 0 12px}
+.s-divider.red{background:var(--red)}
+.s-divider.gold{background:var(--gold)}
+.s-divider.green{background:var(--green)}
+.card{background:var(--white);border-radius:11px;padding:16px 14px;margin-bottom:9px;box-shadow:0 2px 14px rgba(0,0,0,0.05)}
+.card:last-child{margin-bottom:0}
+.card .tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-bottom:5px;letter-spacing:1px}
+.card .tag.red{background:var(--red-light);color:var(--red)}
+.card .tag.gold{background:var(--gold-light);color:#A67C00}
+.card .tag.green{background:var(--green-light);color:var(--green)}
+.card .tag.blue{background:#E3F2FD;color:#0F3460}
+.card .tag.purple{background:#F3E5F5;color:#7B1FA2}
+.card h3{font-size:14px;font-weight:700;margin-bottom:4px}
+.card p,.card li{font-size:13px;color:#555;line-height:1.7}
+.card ul{padding-left:15px;margin:4px 0}
+.card ul li{margin-bottom:3px}
+.card ul li::marker{color:var(--red)}
+.highlight{padding:10px 13px;border-radius:8px;border-left:3px solid var(--red);font-size:13px;color:#444;margin:8px 0}
+.highlight.gold{border-left-color:var(--gold);background:var(--gold-light)}
+.highlight.red{border-left-color:var(--red);background:var(--red-light)}
+.highlight.green{border-left-color:var(--green);background:var(--green-light)}
+.highlight.dark{border-left-color:#1A1A2E;background:#F0F0F5}
+.highlight strong{color:var(--dark)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr}}
+.table-wrap{overflow-x:auto;margin:8px 0;border-radius:9px;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+table{width:100%;border-collapse:collapse;font-size:12px;background:var(--white)}
+th{padding:8px 10px;text-align:left;font-weight:700;font-size:11px;letter-spacing:1px;background:var(--red);color:#FFF}
+th.gold{background:var(--gold);color:#111}
+th.dark{background:#1A1A2E}
+td{padding:7px 10px;border-bottom:1px solid #F0EDE8;color:#555}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#FAFAFA}
+.footer{text-align:center;padding:22px 18px;color:#AAA;font-size:11px;border-top:1px solid rgba(0,0,0,0.04)}
+.kpi-row{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0}
+.kpi-item{flex:1;min-width:70px;background:var(--white);border-radius:7px;padding:10px 7px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+.kpi-item .num{font-size:20px;font-weight:900;color:var(--red)}
+.kpi-item .lbl{font-size:10px;color:var(--gray);margin-top:2px}
+.kpi-item.gold .num{color:var(--gold)}
+.kpi-item.blue .num{color:#0F3460}
+.dm-preview{
+  background:#FFF8F0;border:2px dashed #DDD;border-radius:12px;
+  padding:20px 16px;margin:10px 0;text-align:center;position:relative;
+}
+.dm-preview h4{font-size:24px;margin-bottom:4px;color:var(--red);letter-spacing:2px;}
+.dm-preview .sub{font-size:13px;color:#888;margin-bottom:10px;letter-spacing:3px;}
+.dm-preview .line{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:10px 0;}
+.dm-preview .item{display:flex;justify-content:space-between;padding:4px 0;font-size:13px;border-bottom:1px dotted #EEE;}
+.dm-preview .item .name{color:var(--dark)}
+.dm-preview .item .price{color:var(--red);font-weight:700}
+.dm-preview .footer-txt{margin-top:10px;font-size:11px;color:#AAA;line-height:1.6;}
+.dm-preview .badge-dm{
+  position:absolute;top:-8px;right:12px;background:var(--red);color:#FFF;
+  padding:2px 10px;border-radius:4px;font-size:10px;font-weight:700;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#strategy">品牌定位</a>
+  <a href="#fence">围挡/预热</a>
+  <a href="#dm">DM单设计</a>
+  <a href="#open">开业活动</a>
+  <a href="#pos">智能收银</a>
+  <a href="#online">线上运营</a>
+  <a href="#private">私域社群</a>
+  <a href="#budget">预算</a>
+  <a href="#timeline">时间线</a>
+  <a href="#kpi">目标</a>
+</nav>
+
+<div class="hero">
+  <div class="badge">🍜 清兰德 · 牛肉面+烧烤 · 全运营方案</div>
+  <h1>清兰德<span>兰州纯汤牛肉面·烧烤</span></h1>
+  <div class="sub">新港·港医路 · 牛面面+烧烤双品类全天候经营</div>
+  <div class="tags">
+    <span>📍 新港公园西门</span>
+    <span>🍜 兰州纯汤牛肉面</span>
+    <span>🔥 西北烧烤</span>
+    <span>🏢 旁边公寓+员工客群</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- 01 品牌定位 -->
+<div class="scene" id="strategy">
+  <h2 class="scene-title">01 · 品牌定位 · <em>牛肉面做午餐 · 烧烤做晚餐 · 一天两波生意</em></h2>
+  <div class="s-divider red"></div>
+
+  <div class="highlight gold">
+    <strong>🎯 核心定位：</strong>兰州纯汤牛肉面+西北烧烤——<strong>一间店 · 两门生意 · 覆盖全天</strong>。旁边公寓住的都是员工/打工族，午餐来一碗牛肉面管饱（¥15-20），晚餐/宵夜来几串烧烤解馋（¥30-50）。老板是青海人，正宗西北味，这就是最大的信任背书。
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <span class="tag red">🎯 双品类互补策略</span>
+      <p>
+      <strong>☀️ 午市（11:00-14:00）→ 牛肉面为主</strong><br>
+      • 纯汤牛肉面 ¥15-18（引流款）<br>
+      • 加肉牛肉面 ¥25-28（利润款）<br>
+      • 凉皮/小菜 ¥5-8（配餐）<br>
+      • 上餐快 · 翻台快 · 员工午餐刚需<br><br>
+      <strong>🌙 晚市/宵夜（17:00-23:00）→ 烧烤为主</strong><br>
+      • 羊肉串/牛肉串 ¥3-4/串（引流）<br>
+      • 烤羊排/羊腿（利润款）<br>
+      • 啤酒饮料（提升客单价）<br>
+      • 下班后的社交场景<br><br>
+      <strong>💡 核心优势：</strong>一套人工+房租，做两拨生意，坪效翻倍！
+      </p>
+    </div>
+    <div class="card">
+      <span class="tag green">👥 客群画像</span>
+      <p>
+      <strong>周边公寓员工（核心客群）：</strong><br>
+      • 午市：上班族解决午饭，追求快+便宜+管饱<br>
+      • 晚市：下班后聚餐/宵夜，好吃不贵<br>
+      • 客单价：午市¥18-25，晚市¥35-50<br><br>
+      <strong>新港周边居民/路人：</strong><br>
+      • 新港公园休闲客群<br>
+      • 路过的出租车司机/外卖小哥<br><br>
+      <strong>西北老乡圈：</strong><br>
+      • 老板青海人 → 正宗西北味背书<br>
+      • 新港附近的西北老乡口口相传<br><br>
+      <strong>一句话：</strong>"新港人的西北食堂——中午牛肉面晚上烧烤"
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 02 围挡/预热 -->
+<div class="scene" id="fence">
+  <h2 class="scene-title">02 · 围挡+开业预热 · <em>马上开业了，围挡来不及就做"预热海报"</em></h2>
+  <div class="s-divider gold"></div>
+
+  <div class="highlight red">
+    <strong>⚠️ 时间紧迫：</strong>门店快开业了，围挡可能来不及做了。建议用<strong>「开业预热海报+门头横幅」</strong>替代传统围挡。门口拉横幅、玻璃门贴海报，一样能吸睛。
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <span class="tag gold">🪧 门头/玻璃门预热方案</span>
+      <p>
+      <strong>门口拉横幅（¥50搞定）：</strong><br>
+      "🍜 清兰德兰州纯汤牛肉面·烧烤 即将开业 🍢"<br>
+      "📍 新港公园西门 · 青海老板 · 正宗西北味"<br><br>
+      <strong>玻璃门贴海报（A3大）：</strong><br>
+      • 左边贴：「开业倒计时 X 天」<br>
+      • 右边贴：「扫码进群 · 开业送牛肉面」<br>
+      • 中间贴：巨幅菜品海报（牛肉面+烧烤大图）<br><br>
+      <strong>门口放易拉宝（¥30）：</strong><br>
+      "进群抽霸王餐 · 开业前50名到店免费吃招牌牛肉面"
+      </p>
+    </div>
+    <div class="card">
+      <span class="tag blue">📢 周边扫街预热</span>
+      <p>
+      <strong>旁边公寓是关键！</strong><br><br>
+      • 去旁边公寓找物业/宿管谈合作<br>
+      • 让宿管帮忙在公寓群里发一条消息：<br>
+      "楼下新开了家兰州牛肉面，青海老板，加群领开业免费吃"<br>
+      • 给宿管送几份"试吃券"作为回报<br><br>
+      <strong>周边店铺联动：</strong><br>
+      旁边小豪享来零食店的顾客也是目标客群<br>
+      和老板商量：在他店里放你的DM单/海报<br>
+      你也可以在他店里消费后送他一碗面（互推）
+      </p>
+    </div>
+  </div>
+
+  <div class="highlight dark">
+    <strong>🎯 来不及做传统围挡？这个方案更省钱更有效：</strong><br>
+    ✅ 门头横幅¥50 + ✅ 玻璃海报¥30 + ✅ 易拉宝¥30 + ✅ 扫公寓+扫周边店铺 = 总计不到¥150，效果比围挡好——因为围挡只能看，预热海报能扫码进群！
+  </div>
+</div>
+
+<!-- 03 DM单设计 -->
+<div class="scene" id="dm">
+  <h2 class="scene-title">03 · DM单设计 · <em>到公寓门口发 · 到新港公园发</em></h2>
+  <div class="s-divider red"></div>
+
+  <div class="dm-preview">
+    <span class="badge-dm">📄 DM单参考版式</span>
+    <h4>🍜 清兰德 · 兰州纯汤牛肉面</h4>
+    <div class="sub">QINGLANDE · LANZHOU BEEF NOODLE</div>
+    
+    <div class="line"></div>
+    
+    <div style="font-size:16px;font-weight:700;color:var(--red);margin:6px 0;">
+      🔥 新港开业 · 全城钜惠 🔥
+    </div>
+    
+    <div style="background:var(--red-light);border-radius:8px;padding:10px;margin:10px 0;">
+      <div style="font-size:14px;font-weight:700;">🎫 凭此DM单到店免费领</div>
+      <div style="font-size:20px;font-weight:900;color:var(--red);margin:4px 0;">招牌牛肉面1碗</div>
+      <div style="font-size:11px;color:#888;">开业前7天有效 · 每天限前50名</div>
+    </div>
+    
+    <div class="item"><span class="name">🍜 纯汤牛肉面</span><span class="price">¥15</span></div>
+    <div class="item"><span class="name">🥩 加肉牛肉面</span><span class="price">¥25</span></div>
+    <div class="item"><span class="name">🍢 羊肉串（10串）</span><span class="price">¥30</span></div>
+    <div class="item"><span class="name">🔥 烤羊排（份）</span><span class="price">¥68</span></div>
+    
+    <div class="line"></div>
+    
+    <div class="footer-txt">
+      📍 新港公园西门 · 港医路<br>
+      ⏰ 11:00-23:00 · 青海老板 · 正宗西北味<br>
+      🎁 扫码进群 · 开业更多福利
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top:10px;">
+    <div class="card">
+      <span class="tag red">📄 DM单发放策略</span>
+      <p>
+      <strong>印量：</strong>2,000份（A5大小，双面彩印）约¥200<br><br>
+      <strong>发放地点：</strong><br>
+      • 旁边公寓楼下的信箱/电梯口（重点！）<br>
+      • 新港公园门口（下班时间发，17:00-19:00）<br>
+      • 周边便利店/小超市收银台放一叠<br>
+      • 新港街道菜市场/公交站<br><br>
+      <strong>发放时间：</strong><br>
+      开业前3天开始发，开业当天再发一轮<br>
+      重点发下班时间（17:00-19:00）——回家路上的人
+      </p>
+    </div>
+    <div class="card">
+      <span class="tag green">📱 DM单上加二维码</span>
+      <p>
+      <strong>DM单必须放两个码：</strong><br><br>
+      <strong>① 社群二维码</strong><br>
+      扫码进群 → 领开业福利<br>
+      进群自动发"开业当天到店送牛肉面1碗"<br><br>
+      <strong>② 老板微信二维码</strong><br>
+      加好友 → 朋友圈看到开业活动<br>
+      方便私聊订餐/预约<br><br>
+      <strong>💡 DM单核心逻辑：</strong><br>
+      发出去1张DM单 = 不只是1次曝光<br>
+      扫码进群 = 永久触达
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 04 开业活动 -->
+<div class="scene" id="open">
+  <h2 class="scene-title">04 · 开业活动 · <em>简单粗暴 · 直接让利</em></h2>
+  <div class="s-divider red"></div>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th style="width:16%;">时间</th><th>活动</th><th>玩法</th><th style="width:12%;">预算</th></tr>
+      <tr>
+        <td><strong>D-3~D-1</strong></td>
+        <td>📱 预热蓄水</td>
+        <td>发DM单+门口横幅+社群每日发菜品图+抽奖送牛肉面</td>
+        <td>¥200</td>
+      </tr>
+      <tr>
+        <td><strong>D-Day~D+3</strong></td>
+        <td>🔥 开业免费吃</td>
+        <td>每天前50名到店，凭DM单/进群截图→免费领招牌牛肉面1碗</td>
+        <td>¥600</td>
+      </tr>
+      <tr>
+        <td><strong>D+4~D+7</strong></td>
+        <td>🎯 第二波让利</td>
+        <td>牛肉面特价¥9.9（原价¥15），烧烤满100减20</td>
+        <td>¥500</td>
+      </tr>
+      <tr>
+        <td><strong>D+8~D+14</strong></td>
+        <td>💳 储值锁客</td>
+        <td>充100送15，充200送40（收银系统一键开启）</td>
+        <td>¥0</td>
+      </tr>
+      <tr>
+        <td><strong>持续</strong></td>
+        <td>⭐ 好评有礼</td>
+        <td>美团/点评收藏打卡到店送小菜1份（禁好评返现）</td>
+        <td>¥200</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="grid-2" style="margin-top:10px;">
+    <div class="card">
+      <span class="tag gold">🎁 核心活动：免费牛肉面</span>
+      <p>
+      <strong>为什么选这个活动？</strong><br><br>
+      • 牛肉面成本低（¥3-4/碗），但价值感强（¥15）<br>
+      • 免费吃面 = 降低尝试门槛 = 大量拉新<br>
+      • 吃了面觉得好 → 下次带朋友来 → 点烧烤<br><br>
+      <strong>成本算账：</strong><br>
+      开业3天×每天50碗×¥4成本 = ¥600<br>
+      来50个人，按20%转化烧烤 = 10人×¥40 = ¥400<br>
+      3天实际成本仅¥200！超值！
+      </p>
+    </div>
+    <div class="card">
+      <span class="tag blue">🔥 烧烤引流组合拳</span>
+      <p>
+      <strong>晚市烧烤怎么拉人？</strong><br><br>
+      <strong>① "啤酒买二送一"</strong><br>
+      吃烧烤必配啤酒，买二送一 ≈ 打7折<br>
+      成本低，但顾客感知强<br><br>
+      <strong>② "每晚8点 · 特价烤串"</strong><br>
+      指定5款烤串8折（仅限晚上8-9点）<br>
+      制造"限时抢购"氛围<br><br>
+      <strong>③ "消费满100抽奖"</strong><br>
+      一等奖免单、二等奖半价、三等奖送小菜<br>
+      增加回头客概率
+      </p>
+    </div>
+  </div>
+
+  <div class="highlight gold">
+    <strong>💡 针对公寓员工的"工作日套餐"：</strong><br>
+    🥇 <strong>午餐铁粉卡：</strong>一次性充值¥100 → 工作日午餐牛肉面任选（¥15以内）享<strong>8折</strong>，相当于每碗省¥3！<br>
+    🥇 <strong>宵夜搭子卡：</strong>充值¥200 → 烧烤享<strong>85折</strong>，适合室友/同事拼桌<br>
+    → 直接在公寓楼里推，员工天天路过，天天来吃！
+  </div>
+</div>
+
+<!-- 05 智能收银 -->
+<div class="scene" id="pos">
+  <h2 class="scene-title">05 · 美团智能版收银系统 · <em>双品类经营，收银不能乱</em></h2>
+  <div class="s-divider green"></div>
+
+  <div class="highlight green">
+    <strong>💡 为什么清兰德特别需要：</strong>牛肉面快餐（快翻台）+ 烧烤正餐（慢消费）——两种不同业态在一个店里，收银系统必须能区分时段、区分品类、分开统计。美团智能版收银系统完美适配这种双品类模式。
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th>功能</th><th>解决清兰德什么问题</th></tr>
+      <tr><td><strong>扫码点餐</strong></td><td>午市高峰期不排队——客人扫码自己点面，收银台不压单</td></tr>
+      <tr><td><strong>分时段菜单</strong></td><td>11:00-14:00默认显示牛肉面菜单；17:00后自动切烧烤菜单</td></tr>
+      <tr><td><strong>KDS厨显</strong></td><td>面档看面单+烧烤看烤串单，后厨不混单</td></tr>
+      <tr><td><strong>团购核销</strong></td><td>美团/点评团购券一码核销，开业期团购量大不发愁</td></tr>
+      <tr><td><strong>会员储值</strong></td><td>"工作日套餐""宵夜搭子卡"一键开启</td></tr>
+      <tr><td><strong>经营报表</strong></td><td>牛肉面卖了多少、烧烤卖了多少——分开看，清楚知道哪块赚钱</td></tr>
+      <tr><td><strong>双平台外卖</strong></td><td>美团+饿了么接单不丢单，牛肉面+烧烤都能外卖</td></tr>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:10px;">
+    <span class="tag red">💰 顶配报价参考</span>
+    <p>
+    <strong>智能版收银机（1台）</strong> — 收银+扫码点餐+团购核销+会员管理<br>
+    <strong>KDS厨房显示屏（2台）</strong> — 面档1台+烧烤档1台（双品类必须分开）<br>
+    <strong>后厨打印机（2台）</strong> — 面档出票+烧烤出票<br>
+    <strong>扫码设备（1台）</strong> — 团购核销+会员扫码<br><br>
+    <strong>套餐价约 ¥2,000-3,000</strong>（双品类配置稍高，具体咨询销售）<br>
+    双品类双KDS = 后厨不出错 = 顾客不催单 = 老板少操心
+    </p>
+  </div>
+</div>
+
+<!-- 06 线上运营 -->
+<div class="scene" id="online">
+  <h2 class="scene-title">06 · 线上运营 · <em>大众点评+美团+抖音</em></h2>
+  <div class="s-divider gold"></div>
+
+  <div class="grid-2">
+    <div class="card">
+      <span class="tag blue">📱 大众点评·美团</span>
+      <p>
+      <strong>开业前（现在就要做）：</strong><br>
+      • 联系销售加急开通门店（马上开业了！）<br>
+      • 上传菜品图（牛肉面实拍+烧烤实拍）<br>
+      • 设置开业团购套餐：<br>
+      <strong>① 单人尝鲜套餐 ¥12.9</strong> — 纯汤牛肉面1碗（引流款）<br>
+      <strong>② 双人烧烤套餐 ¥69</strong> — 羊肉串20串+小菜+饮品<br>
+      <strong>③ 午市特惠套餐 ¥19.9</strong> — 牛肉面+小菜+饮品<br><br>
+      <strong>开业期：</strong><br>
+      • 推广通每天¥50，定向新港3公里<br>
+      • 鼓励顾客写评价（收藏打卡送小菜）<br>
+      • 保持评分在4.3以上<br>
+      • 针对"牛肉面"和"烧烤"双品类分别推团购
+      </p>
+    </div>
+    <div class="card">
+      <span class="tag purple">🎬 抖音同城</span>
+      <p>
+      <strong>低预算抖音起号（日均¥13）：</strong><br><br>
+      <strong>内容方向（手机拍）：</strong><br>
+      ① 牛肉面制作过程——拉面师傅甩面的画面超有视觉冲击<br>
+      ② 烧烤炭火+肉串滋滋冒油——晚上发馋哭人<br>
+      ③ 青海老板出镜——"新港的朋友们，我是青海人，我家的牛肉面…"<br>
+      ④ 旁边公寓员工来吃面的真实画面<br><br>
+      <strong>选题模板：</strong><br>
+      "新港公寓楼下开了家牛肉面，青海老板太实在了"<br>
+      "这一碗面，新港打工人吃了都说好"<br>
+      "晚上8点，烧烤配啤酒，这才是生活"<br><br>
+      <strong>投放：</strong>抖加同城¥50/条，定向新港3公里<br>
+      <strong>预算：</strong>90天≈¥1,200
+      </p>
+    </div>
+  </div>
+
+  <div class="highlight dark">
+    <strong>📱 外卖策略：</strong>牛肉面天生适合外卖！开业就开通美团外卖。<br>
+    • 牛肉面外卖：定价¥18.8（含包装+配送），比堂食贵¥3-4<br>
+    • 烧烤外卖：做"烤串套餐"（30串起送），配啤酒<br>
+    • 旁边公寓的员工是外卖核心客群——直接外卖到公寓楼下<br>
+    • 初期先用"满减优惠"冲单量（满30减5，满50减10）
+  </div>
+</div>
+
+<!-- 07 私域社群 -->
+<div class="scene" id="private">
+  <h2 class="scene-title">07 · 私域社群 · <em>公寓员工群就是你的金矿</em></h2>
+  <div class="s-divider red"></div>
+
+  <div class="grid-2">
+    <div class="card">
+      <span class="tag red">📊 社群运营节奏</span>
+      <p>
+      <strong>预热期（D-3~D-Day）：蓄水群</strong><br>
+      • 发店内照片：面锅/烤炉/菜品实拍<br>
+      • 每天抽3碗免费牛肉面<br>
+      • "开业倒计时…老板在准备什么？"<br><br>
+      <strong>开业期（D-Day~D+14）：活跃群</strong><br>
+      • 每天早上发当日特价<br>
+      • 午市发牛肉面实拍，晚市发烧烤实拍<br>
+      • 到店顾客发图领红包（¥1-2）<br><br>
+      <strong>常态化（D+15后）：福利群</strong><br>
+      • 每周三"群友日"——群友专享8折<br>
+      • 每月一次"最佳吃客"抽奖<br>
+      • 新品试吃——群友优先
+      </p>
+    </div>
+    <div class="card">
+      <span class="tag green">🎯 公寓专攻策略</span>
+      <p>
+      <strong>旁边公寓是核心战场！</strong><br><br>
+      <strong>线下攻：</strong><br>
+      • 在公寓楼门口的告示栏贴海报<br>
+      • 和公寓物业/宿管合作——让他们在内部群发<br>
+      • 在公寓电梯口/楼道放DM单<br><br>
+      <strong>线上攻：</strong><br>
+      • 公寓一般有住户群/员工群——想办法进去<br>
+      • 或者门口拉人："加群免费领牛肉面"<br>
+      • 在公寓群里发外卖优惠码<br><br>
+      <strong>目标：</strong>开业1个月内，旁边公寓<strong>50%的住户</strong>都加群！<br>
+      1栋公寓按300人算 → 加群150人 → 每天至少15人来吃
+      </p>
+    </div>
+  </div>
+
+  <div class="highlight gold">
+    <strong>💡 群名建议：</strong>「清兰德·新港吃货群」——不要叫"牛肉面群"太窄，群里既能推牛肉面也能推烧烤！<br>
+    <strong>群公告：</strong>"新港人的西北食堂！中午清兰德牛肉面管饱，晚上清兰德烧烤解馋 🔥"
+  </div>
+</div>
+
+<!-- 08 预算 -->
+<div class="scene" id="budget">
+  <h2 class="scene-title">08 · 预算 · <em>控制成本 · 不花冤枉钱</em></h2>
+  <div class="s-divider gold"></div>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th style="width:22%;">项目</th><th style="width:12%;">预算</th><th>说明</th></tr>
+      <tr><td>🪧 门头横幅+玻璃海报+易拉宝</td><td><strong>¥150</strong></td><td>替代传统围挡，快速出街</td></tr>
+      <tr><td>📄 DM单设计印刷（2,000份）</td><td><strong>¥250</strong></td><td>A5双面彩印+设计费</td></tr>
+      <tr><td>🎁 开业免费牛肉面（3天×50碗）</td><td><strong>¥600</strong></td><td>核心引流活动，成本¥4/碗</td></tr>
+      <tr><td>🔥 第二波特价让利</td><td><strong>¥500</strong></td><td>牛肉面¥9.9+烧烤满减让利</td></tr>
+      <tr><td>📱 推广通（14天）</td><td><strong>¥700</strong></td><td>每天¥50，定向新港3公里</td></tr>
+      <tr><td>🎬 抖音抖加（90天）</td><td><strong>¥1,200</strong></td><td>每周投2-3条，同城定向</td></tr>
+      <tr><td>🎁 社群红包+互动</td><td><strong>¥200</strong></td><td>开业期群内抽奖红包</td></tr>
+      <tr><th class="dark">💰 开业总预算</th><th><strong>¥3,600</strong></th><th>控制预算，不乱花钱</th></tr>
+    </table>
+  </div>
+
+  <div class="highlight green">
+    <strong>💡 省钱Tips：</strong><br>
+    • 门口横幅自己写字+打印店做，不超过¥50<br>
+    • DM单设计用手机拍照+PPT排版（不用找设计师）<br>
+    • 抖音自己手机拍+剪映剪，0制作费<br>
+    • 社群老板/老板娘自己运营，0人工成本<br>
+    • 和旁边小豪享来零食店互推DM单——0成本异业合作
+  </div>
+</div>
+
+<!-- 09 时间线 -->
+<div class="scene" id="timeline">
+  <h2 class="scene-title">09 · 开业时间线 · <em>现在就开始！</em></h2>
+  <div class="s-divider red"></div>
+
+  <div class="highlight red">
+    <strong>⏰ 立即行动：</strong>门店座椅已经摆好，马上开业了！以下时间线以"今天"为D-Day起算，倒排工期。
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th style="width:14%;">时间</th><th style="width:16%;">阶段</th><th>关键动作</th></tr>
+      <tr><td><strong>今天</strong></td><td>🚀 立即</td><td>① 联系销售开通美团门店+团购上架 ② 设计DM单并下单印刷 ③ 做门头横幅+玻璃海报 ④ 创建3个社群并贴二维码</td></tr>
+      <tr><td><strong>明天</strong></td><td>📣 预热</td><td>① 门口挂横幅+贴海报 ② 去旁边公寓谈物业/宿管 ③ 去小豪享来谈互推 ④ 社群开始发内容+抽奖</td></tr>
+      <tr><td><strong>D-3~D-1</strong></td><td>📢 扫街</td><td>① 发DM单（公寓+公园+周边） ② 抖音发开业预告 ③ 推广通预热开启</td></tr>
+      <tr><td><strong>D-Day</strong></td><td>🎉 开业</td><td>① 前50名免费牛肉面 ② 朋友圈裂变活动 ③ 抖音直播/发视频+投抖加 ④ 社群实时分享开业盛况</td></tr>
+      <tr><td><strong>D+1~D+14</strong></td><td>📈 稳定</td><td>① 第二波特价活动 ② 储值锁客开启 ③ 收集评价保评分 ④ 根据数据调整菜品</td></tr>
+    </table>
+  </div>
+
+  <div class="highlight gold">
+    <strong>🎯 今天就要做的事（优先级排序）：</strong><br>
+    <strong>1⃣</strong> 联系美团销售开通门店+上架团购套餐（最紧急！）<br>
+    <strong>2⃣</strong> 打印"+社群送牛肉面"二维码贴门口<br>
+    <strong>3⃣</strong> 去旁边公寓谈合作（这个客群是金矿）<br>
+    <strong>4⃣</strong> 去广告公司做横幅+海报+DM单（最快明天就能发）
+  </div>
+</div>
+
+<!-- 10 KPI -->
+<div class="scene" id="kpi" style="border-bottom:none;">
+  <h2 class="scene-title">10 · 目标与KPI · <em>跳一跳够得着</em></h2>
+  <div class="s-divider red"></div>
+
+  <div class="highlight red">
+    <strong>🎯 核心目标：</strong>双品类经营，第一月目标<strong>日均营收¥2,000</strong>（午市牛肉面¥800+晚市烧烤¥1,200），第二月¥3,000，第三月稳定¥4,000+。
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi-item"><div class="num">3个</div><div class="lbl">蓄水群</div></div>
+    <div class="kpi-item gold"><div class="num">¥2,000</div><div class="lbl">首月日均营收</div></div>
+    <div class="kpi-item blue"><div class="num">4.3⭐</div><div class="lbl">首月评分</div></div>
+    <div class="kpi-item gold"><div class="num">¥3,600</div><div class="lbl">开业总预算</div></div>
+  </div>
+
+  <div class="table-wrap" style="margin-top:10px;">
+    <table>
+      <tr><th style="width:16%;">周期</th><th style="width:20%;">日均营收</th><th style="width:22%;">社群目标</th><th>评分目标</th></tr>
+      <tr><td><strong>开业期（D-Day~D+14）</strong></td><td>¥1,000-1,500</td><td>3个群各200人</td><td>4.0⭐</td></tr>
+      <tr><td><strong>稳定期（D+15~D+30）</strong></td><td>¥2,000-2,500</td><td>3个群各500人</td><td>4.3⭐</td></tr>
+      <tr><td><strong>常态化（D+31~D+90）</strong></td><td>¥3,000-4,000</td><td>5个群各500人</td><td>4.5⭐</td></tr>
+    </table>
+  </div>
+
+  <div class="highlight dark" style="margin-top:10px;">
+    <strong>🔥 一句话总结：</strong>清兰德——<strong>一间店 · 两门生意 · 覆盖全天。</strong>中午一碗牛肉面管饱（¥15），晚上几串烧烤解馋（¥40），旁边公寓的员工就是你的稳定客源。门头横幅+DM单+社群+抖音——低成本四件套打透新港3公里。<strong>青海老板的西北味，就是最好的招牌 👊</strong>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  🍜 清兰德兰州纯汤牛肉面·烧烤 · 全运营方案 · 2026年6月<br>
+  新港街道港医路新港公园西门
+</div>
+
+<script>
+document.querySelectorAll('nav a').forEach(a => {
+  a.addEventListener('click', function(e) {
+    document.querySelectorAll('nav a').forEach(x => x.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      document.querySelectorAll('nav a').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+      });
+    }
+  });
+}, {rootMargin:'-55px 0px -50% 0px'});
+document.querySelectorAll('.scene').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
